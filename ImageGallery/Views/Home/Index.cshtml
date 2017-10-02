@@ -1,8 +1,8 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Image Gallery";
 }
 
-<div class="jumbotron">
+@*<div class="jumbotron">
     <h1>ASP.NET</h1>
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
@@ -27,5 +27,41 @@
         <h2>Web Hosting</h2>
         <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+</div>*@
+        
+@*@foreach (var image in ViewBag.Images)
+{
+    <div>
+        <img src="@image" />
+    </div>
+}*@
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <a href="~/Images/img1.jpg" class="thumbnail">
+                <p>Title</p>
+                <img src="~/Images/img1.jpg" />
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <a href="~/Images/img2.jpg" class="thumbnail">
+                <p>Title</p>
+                <img src="~/Images/img2.jpg" />
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <a href="~/Images/images.jpg" class="thumbnail">
+                <p>Title</p>
+                <img src="~/Images/images.jpg" />
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <a href="~/Images/1472042512_05.jpg" class="thumbnail">
+                <p>Title</p>
+                <img src="~/Images/1472042512_05.jpg" />
+            </a>
+        </div>
     </div>
 </div>
