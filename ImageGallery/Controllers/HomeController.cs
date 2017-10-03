@@ -10,21 +10,31 @@ namespace ImageGallery.Controllers
 {
     public class HomeController : Controller
     {
-        IImageRepository imageRepository;
+        private const int DEFAULT_COUNT_OF_IMAGES = 4;
+
+        private IImageRepository imageRepository;
 
         public HomeController()
         {
             imageRepository = new ImageRepository();
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int? offset, int? count)
         {
             //string filePath = Server.MapPath(Url.Content("~/Images/img1.jpg"));
-            //Stream stream = System.IO.File.Open(filePath, FileMode.Open, FileAccess.Read);
-            //FileStreamResult s = new FileStreamResult(stream, "image//jpg");
-            //ViewBag.Image = s;
 
-            ViewBag.Images = imageRepository.GetSequence(0, 3);
+            int allImagesCount = imageRepository.Count;
+
+            if ((offset == null) || (offset < 0) || (offset >= allImagesCount))
+                offset = 0;
+            if (count == null || (count < 0))
+                count = DEFAULT_COUNT_OF_IMAGES;
+
+            ViewBag.PrevOffset = (offset >= count) ? (offset - count) : -1;
+            ViewBag.NextOffset = (offset + count <= imageRepository.Count) ? (offset + count) : -1;
+            ViewBag.Count = count;
+
+            ViewBag.Images = imageRepository.GetSequence(offset.Value, count.Value);
             return View();
         }
     }

@@ -13,6 +13,8 @@ namespace Dal
 
         private Image[] images;
 
+        public int Count => images.Length;
+
         public ImageRepository()
         {
             images = new Image[]
