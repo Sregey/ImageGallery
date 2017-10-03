@@ -3,48 +3,42 @@
 }
 
 <div class="row">
-    <div class="col-md-1">
-        @Html.ActionLink("prev", "Index", new { offset = ViewBag.PrevOffset, count = ViewBag.Count}, new { @class = "btn btn-default" })
-    </div>
+
+    @if (ViewBag.PrevOffset == -1)
+            {
+        <div class="col-md-1 disabled"></div>
+    }
+    else
+    {
+        <div class="col-md-1 horiz-center">
+            @Html.ActionLink("prev", "Index", new { offset = ViewBag.PrevOffset, count = ViewBag.Count }, new { @class = "btn btn-default" })
+        </div>
+    }
 
     <div class="col-md-10">
-        @foreach (var image in ViewBag.Images)
-        {
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <a href="@Url.Content("~/Images/")@image.FileName" class="thumbnail">
-                    <img src="@Url.Content("~/Images/")@image.FileName" />
-                    <p>@image.Description</p>
-                </a>
-            </div>
-        }
-        @*<div class="vcenter" style="height: 100%;">
-            <a class="btn btn-default">next</a>
-        </div>*@
+        <div class="row">
+            @foreach (var image in ViewBag.Images)
+            {
+                <div class="col-lg-3 col-md-4 col-sm-6" style="height: 100%;">
+                    <a href="@Url.Content("~/Images/")@image.FileName" class="thumbnail">
+                        <img src="@Url.Content("~/Images/")@image.FileName" width="250" />
+                        <p>@image.Description</p>
+                    </a>
+                </div>
+            }
+        </div>
     </div>
 
-    <div class="col-md-1">
-        <div class="row parent">
-            <div class="child">@*<div class="vcenter" style="height: 100%;">*@
+    @if (ViewBag.NextOffset == -1)
+    {
+        <div class="col-md-1 disabled"></div>
+    }
+    else
+    {
+        <div class="col-md-1">
+            <div class="horiz-center">
                 @Html.ActionLink("next", "Index", new { offset = ViewBag.NextOffset, count = ViewBag.Count }, new { @class = "btn btn-default" })
             </div>
         </div>
-    </div>
+    }
 </div>
-
-@*<div class="row parent">
-    <div class="col-xs-5 col-md-3 col-lg-1 child">
-        <div style="height:10em;border:1px solid #000">Big</div>
-    </div>
-    <div class="col-xs-5 col-md-7 col-lg-9 child">
-        <div style="height:3em;border:1px solid #F00">Small</div>
-    </div>
-</div>
-
-<div class="row display-table">
-    <div class="col-xs-12 col-sm-4 display-cell">
-        img
-    </div>
-    <div class="col-xs-12 col-sm-8 display-cell">
-        text
-    </div>
-</div>*@

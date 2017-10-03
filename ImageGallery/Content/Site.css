@@ -23,30 +23,7 @@ textarea {
     max-width: 280px;
 }
 
-.vcenter {
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
+.horiz-center {
+    margin: auto;
 }
 
-.parent {
-    display: table;
-    table-layout: fixed;
-}
-
-.child {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-}
-
-.display-table {
-    display: table;
-    table-layout: fixed;
-}
-
-.display-cell {
-    display: table-cell;
-    vertical-align: middle;
-    float: none;
-}

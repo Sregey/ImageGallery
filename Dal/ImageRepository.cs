@@ -9,7 +9,7 @@ namespace Dal
 {
     public class ImageRepository : IImageRepository
     {
-        private static string sourceFolder = "~/Images";
+        //private static string sourceFilePath = "./imageInfo.dat";
 
         private Image[] images;
 
@@ -20,17 +20,53 @@ namespace Dal
             images = new Image[]
             {
                 new Image() { FileName = "img1.jpg", Description = "Маки" },
-                new Image() { FileName = "img2.jpg", Description = "img2" },
-                new Image() { FileName = "images.jpg", Description = "images" },
-                new Image() { FileName = "1472042512_05.jpg", Description = "digits" },
-                new Image() { FileName = "315193.jpg", Description = "315193" },
+                new Image() { FileName = "img2.jpg", Description = "Of on affixed civilly moments promise explain fertile in" },
+                new Image() { FileName = "img3.jpg", Description = "images" },
+                new Image() { FileName = "img4.jpg", Description = "Five he wife gone ye" },
+                new Image() { FileName = "img5.jpg", Description = "Greatest properly off ham exercise all." },
+                new Image() { FileName = "img6.jpg", Description = "Дочерние теги, как и сам родитель" },
+                new Image() { FileName = "img7.jpg", Description = "Unsatiable invitation its possession nor off" },
+                new Image() { FileName = "img8.jpg", Description = "image" },
+                new Image() { FileName = "img9.jpg", Description = "digits" },
             };
-            //imageFileNames = Directory.GetFiles(sourceFolder);
         }
 
         public IEnumerable<Image> GetSequence(int offset, int count)
         {
             return images.Skip(offset).Take(count);
         }
+
+        //private Image[] Load()
+        //{
+        //    Image[] result;
+
+        //    using (var reader = new BinaryReader(File.OpenRead(sourceFilePath)))
+        //    {
+        //        result = new Image[reader.ReadInt32()];
+        //        for (int i = 0; i < result.Length; i++)
+        //        {
+        //            result[i] = new Image()
+        //            {
+        //                FileName = reader.ReadString(),
+        //                Description = reader.ReadString(),
+        //            };
+        //        }
+        //    }
+
+        //    return result;
+        //}
+
+        //private void Save()
+        //{
+        //    using (var writer = new BinaryWriter(File.Open(sourceFilePath, FileMode.OpenOrCreate, FileAccess.Write)))
+        //    {
+        //        writer.Write(images.Length);
+        //        foreach (var image in images)
+        //        {
+        //            writer.Write(image.FileName);
+        //            writer.Write(image.Description);
+        //        }
+        //    }
+        //}
     }
 }
