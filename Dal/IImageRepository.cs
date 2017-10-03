@@ -5,6 +5,6 @@ namespace Dal
 {
     public interface IImageRepository
     {
-        IEnumerable<string> GetSequence(int offset, int count);
+        IEnumerable<Image> GetSequence(int offset, int count);
     }
 }

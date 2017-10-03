@@ -9,19 +9,26 @@ namespace Dal
 {
     public class ImageRepository : IImageRepository
     {
-        //private static string sourceFolder = @"G:\Epam\Лабоатория .NET\ImageGallery\Dal\bin\Debug\Images\";
         private static string sourceFolder = "~/Images";
 
-        private string[] imageFileNames;
+        private Image[] images;
 
         public ImageRepository()
         {
-            imageFileNames = Directory.GetFiles(sourceFolder);
+            images = new Image[]
+            {
+                new Image() { FileName = "img1.jpg", Description = "Маки" },
+                new Image() { FileName = "img2.jpg", Description = "img2" },
+                new Image() { FileName = "images.jpg", Description = "images" },
+                new Image() { FileName = "1472042512_05.jpg", Description = "digits" },
+                new Image() { FileName = "315193.jpg", Description = "315193" },
+            };
+            //imageFileNames = Directory.GetFiles(sourceFolder);
         }
 
-        public IEnumerable<string> GetSequence(int offset, int count)
+        public IEnumerable<Image> GetSequence(int offset, int count)
         {
-            return imageFileNames.Skip(offset).Take(count);//.Select((s) => '\"' + s + '\"');
+            return images.Skip(offset).Take(count);
         }
     }
 }
