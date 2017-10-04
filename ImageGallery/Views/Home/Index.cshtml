@@ -5,7 +5,13 @@
 <div class="row">
     @foreach (var image in ViewBag.Images)
     {
-        <img src="@Url.Content("~/Images/")@image.FileName" class="gallery-image col-lg-3 col-md-4 col-sm-6 col-xs-12" />
+        @*<a href="/Images/img_1.jpg" data-lightbox="example-1">
+            <img src="/Images/img_1.jpg" />
+        </a>*@
+
+        <a href="@Url.Content("~/Images/")@image.FileName" data-lightbox="@image.FileName">
+            <img src="@Url.Content("~/Images/")@image.FileName" class="gallery-image col-lg-3 col-md-4 col-sm-6 col-xs-12" />
+        </a>
     }
 </div>
 
