@@ -23,7 +23,6 @@ textarea {
     max-width: 280px;
 }
 
-.horiz-center {
-    margin: auto;
+.gallery-image {
+    padding: 15px
 }
-

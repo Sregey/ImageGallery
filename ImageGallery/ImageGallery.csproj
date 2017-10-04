@@ -157,11 +157,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\img5.jpg" />
-    <Content Include="Images\img4.jpg" />
-    <Content Include="Images\img3.jpg" />
-    <Content Include="Images\img1.jpg" />
-    <Content Include="Images\img2.jpg" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -174,10 +169,15 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Images\img6.jpg" />
-    <Content Include="Images\img7.jpg" />
-    <Content Include="Images\img8.jpg" />
-    <Content Include="Images\img9.jpg" />
+    <Content Include="Images\img_8.jpg" />
+    <Content Include="Images\img_1.jpg" />
+    <Content Include="Images\img_2.jpg" />
+    <Content Include="Images\img_3.jpg" />
+    <Content Include="Images\img_4.jpg" />
+    <Content Include="Images\img_5.jpg" />
+    <Content Include="Images\img_6.jpg" />
+    <Content Include="Images\img_7.jpg" />
+    <Content Include="Images\img_9.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

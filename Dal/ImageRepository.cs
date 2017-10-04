@@ -19,15 +19,15 @@ namespace Dal
         {
             images = new Image[]
             {
-                new Image() { FileName = "img1.jpg", Description = "Маки" },
-                new Image() { FileName = "img2.jpg", Description = "Of on affixed civilly moments promise explain fertile in" },
-                new Image() { FileName = "img3.jpg", Description = "images" },
-                new Image() { FileName = "img4.jpg", Description = "Five he wife gone ye" },
-                new Image() { FileName = "img5.jpg", Description = "Greatest properly off ham exercise all." },
-                new Image() { FileName = "img6.jpg", Description = "Дочерние теги, как и сам родитель" },
-                new Image() { FileName = "img7.jpg", Description = "Unsatiable invitation its possession nor off" },
-                new Image() { FileName = "img8.jpg", Description = "image" },
-                new Image() { FileName = "img9.jpg", Description = "digits" },
+                new Image() { FileName = "img_1.jpg", Description = "Маки" },
+                new Image() { FileName = "img_2.jpg", Description = "Of on affixed civilly moments promise explain fertile in" },
+                new Image() { FileName = "img_3.jpg", Description = "images" },
+                new Image() { FileName = "img_6.jpg", Description = "Five he wife gone ye" },
+                new Image() { FileName = "img_5.jpg", Description = "Greatest properly off ham exercise all." },
+                new Image() { FileName = "img_4.jpg", Description = "Дочерние теги, как и сам родитель" },
+                new Image() { FileName = "img_7.jpg", Description = "Unsatiable invitation its possession nor off" },
+                new Image() { FileName = "img_8.jpg", Description = "image" },
+                new Image() { FileName = "img_9.jpg", Description = "digits" },
             };
         }
 
