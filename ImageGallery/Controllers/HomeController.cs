@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.IO;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Dal;
 
 namespace ImageGallery.Controllers
@@ -21,8 +16,6 @@ namespace ImageGallery.Controllers
 
         public ActionResult Index(int? offset, int? count)
         {
-            //string filePath = Server.MapPath(Url.Content("~/Images/img1.jpg"));
-
             int allImagesCount = imageRepository.Count;
 
             if ((offset == null) || (offset < 0) || (offset >= allImagesCount))
@@ -30,12 +23,21 @@ namespace ImageGallery.Controllers
             if (count == null || (count < 0))
                 count = DEFAULT_COUNT_OF_IMAGES;
 
-            ViewBag.PrevOffset = (offset >= count) ? (offset - count) : -1;
-            ViewBag.NextOffset = (offset + count <= imageRepository.Count) ? (offset + count) : -1;
-            ViewBag.Count = count;
+            var images = imageRepository.GetSequence(offset.Value, count.Value);
+            if (!Request.IsAjaxRequest())
+            {
+                ViewBag.PrevOffset = (offset >= count) ? (offset - count) : -1;
+                ViewBag.NextOffset = (offset + count <= imageRepository.Count) ? (offset + count) : -1;
+                ViewBag.Count = count;
+                return View(images);
+            }
+            else
+                return Json(imageRepository.GetSequence(offset.Value, DEFAULT_COUNT_OF_IMAGES), JsonRequestBehavior.AllowGet);
+        }
 
-            ViewBag.Images = imageRepository.GetSequence(offset.Value, count.Value);
-            return View();
+        public ActionResult CountOfImages()
+        {
+            return Json(imageRepository.Count, JsonRequestBehavior.AllowGet);
         }
     }
 }
