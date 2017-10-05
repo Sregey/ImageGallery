@@ -1,5 +1,6 @@
 ﻿var offset = 0;
 var imagePerPage = 4;
+var loader = $("<div />", { class: "loader" });
 
 $(document).ready(function () {
     if (!$("#prev").parent().hasClass("no-link"))
@@ -15,6 +16,9 @@ function getImages() {
         url: "/Home/Index",
         data: { offset: offset },
         dataType: "json",
+        beforeSend: function () {
+            $("#image-gallery").append(loader);
+        },
         success: function (images) {
             $("img.gallery-image").each(function (index) {
                 var imageSrc;
@@ -26,6 +30,7 @@ function getImages() {
                 $(this).prop("src", imageSrc);
                 $(this).parent().prop("href", imageSrc);
             });
+            $("#image-gallery").find(loader).remove();
         }
     });
 }
@@ -39,7 +44,6 @@ function prevButtonOnClick(e) {
     getImages();
 
     updatePrevNextButton();
-    return false;
 }
 
 function nextButtonOnClick(e) {
@@ -49,11 +53,12 @@ function nextButtonOnClick(e) {
     getImages();
 
     updatePrevNextButton();
-    return false;
 }
 
 function updatePrevButton()
 {
+    $("#prev").prop("href", "/?offset=" + (offset - imagePerPage));  //надо ли?
+
     if (offset == 0) {
         $("#prev").parent().addClass("no-link");
         $("#prev").unbind("click");
@@ -64,6 +69,8 @@ function updatePrevButton()
 }
 
 function updateNextButton() {
+    $("#next").prop("href", "/?offset=" + (offset + imagePerPage));  //надо ли?
+
     $.ajax({
         type: "GET",
         url: "/Home/CountOfImages",

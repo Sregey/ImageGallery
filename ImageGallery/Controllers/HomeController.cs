@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using Dal;
+using System.Threading;
 
 namespace ImageGallery.Controllers
 {
@@ -32,7 +33,10 @@ namespace ImageGallery.Controllers
                 return View(images);
             }
             else
+            {
+                Thread.Sleep(1000);
                 return Json(imageRepository.GetSequence(offset.Value, DEFAULT_COUNT_OF_IMAGES), JsonRequestBehavior.AllowGet);
+            }
         }
 
         public ActionResult CountOfImages()
