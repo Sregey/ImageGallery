@@ -10,34 +10,25 @@
 
     //functions
     var getImages = function () {
+        $scope.showLoading = true;
+
         $http.get('/Home/Index', { params: { offset: offset } }).then(function (response) {
             $scope.images = response.data;
+            $scope.showLoading = false;
         }, function (error) {
             console.log('/Home/Index return error');
+            $scope.showLoading = false;
         });
     };
 
     var updatePrevButton = function () {
-        //$('#prev').prop('href', '/?offset=' + (offset - imagePerPage));  //надо ли?
-
-        if (offset == 0) {
-            $scope.prevButtonClass = 'no-link';
-        } else {
-            $scope.prevButtonClass = '';
-        }
+        $scope.prevButtonClass = (offset == 0) ? 'no-link' : '';
     };
 
     var updateNextButton = function () {
-        //$('#next').prop('href', '/?offset=' + (offset + imagePerPage));  //надо ли?
-
         $http.get('/Home/CountOfImages').then(function (response) {
             var imageCount = response.data;
-
-            if (offset + imagePerPage >= imageCount) {
-                $scope.nextButtonClass = 'no-link';
-            } else {
-                $scope.nextButtonClass = '';
-            }
+            $scope.nextButtonClass = (offset + imagePerPage >= imageCount) ? 'no-link' : '';
         }, function (error) {
             console.log('/Home/CountOfImages return error');
         });
@@ -73,6 +64,7 @@
     $scope.images;
     $scope.prevButtonClass;
     $scope.nextButtonClass;
+    $scope.showLoading = false;
     $scope.prevButtonOnClick = prevButtonOnClick;
     $scope.nextButtonOnClick = nextButtonOnClick;
 

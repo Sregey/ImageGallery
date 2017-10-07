@@ -13,6 +13,7 @@
            data-lightbox="{{image.FileName}}">
             <img src="@Url.Content("~/Images/"){{image.FileName}}" class="gallery-image col-lg-3 col-md-4 col-sm-6 col-xs-12" />
         </a>
+        <div class="loader" ng-show="showLoading == true"></div>
     </div>
 
     <div class="row pagination" style="display: block;">
