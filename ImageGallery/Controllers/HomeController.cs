@@ -34,7 +34,7 @@ namespace ImageGallery.Controllers
             }
             else
             {
-                Thread.Sleep(1000);
+                //Thread.Sleep(1000);
                 return Json(imageRepository.GetSequence(offset.Value, DEFAULT_COUNT_OF_IMAGES), JsonRequestBehavior.AllowGet);
             }
         }
@@ -42,6 +42,11 @@ namespace ImageGallery.Controllers
         public ActionResult CountOfImages()
         {
             return Json(imageRepository.Count, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Angular()
+        {
+            return View();
         }
     }
 }

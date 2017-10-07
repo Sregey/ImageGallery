@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Angular";
+}
+
+<h2>Angular</h2>
+
+<div ng-controller="ImageGalleryCtrl">
+
+    <div class="row" id="image-gallery">
+        <a ng-repeat="image in images"
+           href="@Url.Content("~/Images/"){{image.FileName}}"
+           data-lightbox="{{image.FileName}}">
+            <img src="@Url.Content("~/Images/"){{image.FileName}}" class="gallery-image col-lg-3 col-md-4 col-sm-6 col-xs-12" />
+        </a>
+    </div>
+
+    <div class="row pagination" style="display: block;">
+
+        <div class="col-xs-6 text-right">
+            <a ng-click="prevButtonOnClick()"
+               ng-class="prevButtonClass"
+               class="btn btn-default"
+               id="prev">
+                prev
+            </a>
+        </div>
+
+        <div class="col-xs-6">
+            <a ng-click="nextButtonOnClick()"
+               ng-class="nextButtonClass"
+               class="btn btn-default"
+               id="next">
+                next
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/angular")
+}

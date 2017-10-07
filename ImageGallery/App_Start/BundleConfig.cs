@@ -14,13 +14,17 @@ namespace ImageGallery
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/ajax").Include(
+            bundles.Add(new ScriptBundle("~/bundles/image-gallery-ajax").Include(
                         "~/Scripts/image-gallery.js"));
 
             // Используйте версию Modernizr для разработчиков, чтобы учиться работать. Когда вы будете готовы перейти к работе,
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                       "~/Scripts/angular.js",
+                       "~/Scripts/image-gallery-angular.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
